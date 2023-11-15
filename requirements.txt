@@ -1,0 +1,10 @@
+Flask
+numpy
+--find-links https://download.pytorch.org/whl/torch_stable.html
+torch==2.0.1+cpu
+sentencepiece
+transformers
+sentence-transformers
+beautifulsoup4
+python-dotenv
+urllib3==1.26.6
