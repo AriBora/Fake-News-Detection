@@ -18,14 +18,14 @@ def check_news():
     news = request.form.get('searchInput')
     logging.info(f"Collected news: {news}")
 
-    related_news = scrape(news)
+    urls, related_news = scrape(news)
     logging.info(f"Scraped all links. {len(related_news)} links could be scraped.")
     imp_news = get_important_texts(related_news, news)
     result = calculate_similarity(news, imp_news)
-    # result = []
-    # for i in range(len(related_news)):
-    #     result.append([i+1,related_news[i]])
-    return render_template('home.html', results=result)
+    results = []
+    for i in range(len(result)):
+        results.append([i+1,urls[i],result[i][0],result[i][1]])
+    return render_template('home.html', News=news, results=results)
 
 
 if __name__=="__main__":

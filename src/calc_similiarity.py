@@ -1,15 +1,12 @@
 import torch
 from sentence_transformers import SentenceTransformer, util
 
-model = SentenceTransformer("Sakil/sentence_similarity_semantic_search")
+# model = SentenceTransformer("Sakil/sentence_similarity_semantic_search")
 
 def similar_lines(cos_sim, text):
-    threshold_similarity =0.45
     threshold_truth = 0.6
-
-    mask = cos_sim[0] > threshold_similarity
-    indices = torch.nonzero(mask)
-
+    _, indices = torch.topk(cos_sim, k=3)
+    
     lines = []
     for idx in indices:
         lines.append(text[idx])
@@ -25,6 +22,7 @@ def similar_lines(cos_sim, text):
         return lines, labels[1]
 
 def calculate_similarity(news, other_news):
+    model = SentenceTransformer("Sakil/sentence_similarity_semantic_search")
     news_emb = model.encode(news)
     results = []
 

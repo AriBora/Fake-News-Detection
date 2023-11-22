@@ -13,10 +13,7 @@ body {
     padding: 40px;
     border-radius: 5px;
     width: calc(80%);
-}
-
-.SearchButton{
-    margin:10px;
+    text-align: center;
 }
 
 input[type="text"] {
@@ -27,9 +24,11 @@ input[type="text"] {
     resize: none;
     overflow: hidden;
 }
+
 button {
-    padding: 10px 20px;
+    padding: 20px 20px;
     font-size: 16px;
+    margin-top: 50px;
 }
 
 nav {
@@ -47,4 +46,54 @@ nav a {
 h1 {
     font-size: 36px;
     text-align: center;
+}
+
+.answer {
+    width: 75%;
+    margin: 0 auto;
+}
+
+#results-table
+{
+    border:1px solid white;
+    align-items: center;
+    align-self: center;
+
+}
+
+.results-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.results-table th {
+    background-color: #f2f2f2;
+}
+
+.results-table td:nth-child(1) {
+    width: 10%; 
+}
+.results-table td:nth-child(2) {
+    width: 25%;
+}
+.results-table td:nth-child(3) {
+    width: 55%; 
+}
+.results-table td:nth-child(4) {
+    width: 10%; 
+}
+
+.results-table ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.results-table li {
+    margin-bottom: 5px;
 }
