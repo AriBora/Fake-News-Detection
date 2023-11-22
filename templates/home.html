@@ -11,30 +11,37 @@
     <div>
         <div >
             <nav>
-                <a href="#home">Home</a>
+                <a href="/">Home</a>
                 <a href="#about">About</a>
-                <a href="#source-code">Source Code</a>
+                <a href="https://github.com/AriBora/Fake-News-Detection/blob/main">Source Code</a>
             </nav>
         </div>
         <h1>Fake News Detection</h1> 
-        <div class="container">
-            <label></label>
-            <input type="text" id="searchInput" size="60" placeholder="Enter your search...">
-            <br/>
-            <button type="button" >Search</button>
-        </div>
+        <form method="POST" action="{{ url_for('check_news') }}">
+            <div class="container">
+                <label for="searchInput"></label>
+                <input type="text" id="searchInput" name="searchInput" size="60" placeholder="Enter headline...">
+                <br/>
+                <button type="submit" id="SubmitButton" >Search</button>
+            </div>
+        </form>
 
     </div>
 
-    <script>
+    {% if results %}
+    <table id="results-table" class="results-table">
+        <tr>
+            <th>Sl. No.</th>
+            <th>Results</th>
+        </tr>
+        {% for result in results %}
+        <tr>
+            <td>{{ result[0] }}</td>
+            <td>{{ result[1] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
 
-        const input = document.getElementById('searchInput');
-        input.addEventListener('input', autoResize, false);
- 
-        function autoResize() {
-            this.style.height = 'auto';
-            this.style.height = this.scrollHeight + 'px';
-        }
-    </script>
 </body>
 </html>

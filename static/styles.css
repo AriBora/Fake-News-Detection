@@ -15,6 +15,10 @@ body {
     width: calc(80%);
 }
 
+.SearchButton{
+    margin:10px;
+}
+
 input[type="text"] {
     box-sizing: border-box;
     padding: 10px;
